@@ -35,11 +35,18 @@ body {
 }
 /* General Classes*/
 
-/* Navbar */
+/* Navbar - Permanently Shrunk */
 #mainNav {
   background-color: #212529;
-  padding-top: 1.0rem;
-  padding-bottom: 1.5rem;
+  /* Use the small padding values here */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: fixed; 
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -47,7 +54,17 @@ body {
 }
 
 #mainNav .navbar-brand {
+  /* Use the small font size here */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
   transition: font-size 0.3s ease-in-out;
+}
+
+#mainNav .navbar-brand svg,
+#mainNav .navbar-brand img {
+  height: 2rem;
+  width: auto;
 }
 
 #navbarNav a {
@@ -61,50 +78,23 @@ body {
 }
 
 .nav-item {
-  margin: 1rem 0.9rem;
+  /* Reduced margin to keep the height small */
+  margin: 0.5rem 0.9rem; 
 }
 
-.navbar-dark .navbar-brand {
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-}
 .navbar-dark .navbar-nav .nav-link.active {
   color: var(--yellow);
 }
 
-
-#mainNav.navbar-shrink {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  background-color: #212529;
-  margin: 0 auto;
-}
-
-#mainNav.navbar-shrink .navbar-brand {
-  font-size: 1.5rem;
-}
-
-#mainNav.navbar-shrink .navbar-brand svg,
-#mainNav.navbar-shrink .navbar-brand img {
-  height: 2rem;
-  width: auto;
-}
+/* You can delete the #mainNav.navbar-shrink blocks entirely 
+   as they are no longer needed */
 
 @media screen and (min-width: 992px) {
   #mainNav {
-    background-color: rgba(33, 37, 41, 0.85);
-    transition: background-color 0.3s ease;
-    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
-  }
-  .nav-item {
-    margin: 1rem 0.9rem;
-  }
-  .btn-navbar {
-    margin-left: 1rem;
+    /* Slightly more opaque background since it's always fixed */
+    background-color: rgba(33, 37, 41, 0.95);
   }
 }
-/* Navbar*/
 
 /* Masthead (Home Section) - UPDATED */
 .masthead {
